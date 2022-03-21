@@ -6,8 +6,13 @@ metadata:
   name: st2-ingress
   namespace: st2
 spec:
+  tls:
+    - hosts:
+      - demo.azure.com
+      secretName: aks-ingress-tls
   rules:
-  - http:
+  - host: demo.azure.com
+    http:
       paths:
       - backend:
           service:
